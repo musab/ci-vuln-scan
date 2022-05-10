@@ -14,7 +14,7 @@ jobs:
       - run:
           name: fetch config
           command: |
-            curl -o vuln-config.yaml https://gist.githubusercontent.com/musab/686dda9a2b3d6389d12c837956786eb2/raw/08ad3d30e6c12668dcb6d44baab368376bcc65d1/temp2
+            curl -o vuln-config.yaml https://gist.githubusercontent.com/musab/686dda9a2b3d6389d12c837956786eb2/raw/a7f228689d195d3018a303c965ea889192e149f6/vuln-config.yml
       - run:
           name: run whispers
           command: whispers --rules aws-id,aws-secret,apikey,file-contains-password,file-contains-secret vuln-config.yaml
