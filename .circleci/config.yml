@@ -17,7 +17,9 @@ jobs:
             curl -o vuln-config.yaml https://gist.githubusercontent.com/musab/da646f7d45587147a1a6bf12b055ae03/raw/4a47ca560c3b793bcdb431a7a0f728029a1580c6/temp
       - run:
           name: run whispers
-          command: whispers ./vuln-config.yaml
+          command: |
+            cd project
+            whispers ./vuln-config.yaml
 
 workflows:
   vuln-scan-workflow:
