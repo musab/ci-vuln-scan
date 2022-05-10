@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   vuln-scan:
     docker:
-      - image: cimg/base
+      - image: cimg/base:stable
     steps:
       - run:
           name: install whispers
