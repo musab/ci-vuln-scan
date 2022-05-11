@@ -14,7 +14,7 @@ jobs:
       - run:
           name: fetch configs
           command: |
-            python3 config-scraper.py
+            python3 ./config-scraper.py
       - run:
           name: run whispers
           command: whispers --rules aws-id,aws-secret,apikey,file-contains-password,file-contains-secret ./configs
