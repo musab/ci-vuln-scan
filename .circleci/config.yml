@@ -12,12 +12,12 @@ jobs:
             cd whispers
             make install
       - run:
-          name: fetch config
+          name: fetch configs
           command: |
-            curl -o vuln-config.yaml https://gist.githubusercontent.com/musab/686dda9a2b3d6389d12c837956786eb2/raw/a7f228689d195d3018a303c965ea889192e149f6/vuln-config.yml
+            python3 config-scraper.py
       - run:
           name: run whispers
-          command: whispers --rules aws-id,aws-secret,apikey,file-contains-password,file-contains-secret vuln-config.yaml
+          command: whispers --rules aws-id,aws-secret,apikey,file-contains-password,file-contains-secret ./configs
 
 workflows:
   vuln-scan-workflow:
