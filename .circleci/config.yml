@@ -1,0 +1,25 @@
+version: 2.1
+
+jobs:
+  vuln-scan:
+    docker:
+      - image: cimg/python:3.10.4
+    steps:
+      - run:
+          name: install whispers
+          command: |
+            git clone https://github.com/Skyscanner/whispers
+            cd whispers
+            make install
+      - run:
+          name: fetch configs
+          command: |
+            python3 config-scraper.py
+      - run:
+          name: run whispers
+          command: whispers --rules aws-id,aws-secret,apikey,file-contains-password,file-contains-secret ./configs
+
+workflows:
+  vuln-scan-workflow:
+    jobs:
+      - vuln-scan
