@@ -2,7 +2,7 @@
 import json,urllib.request
 
 def downloadReposWithCircleCIConfig():
-  url = "https://api.github.com/search/repositories?q=in%3Apath+.circleci?per_page=100"
+  url = "https://api.github.com/search/repositories?q=in%3Apath+.circleci&per_page=100"
   data = urllib.request.urlopen(url).read()
   return  json.loads(data)
 
