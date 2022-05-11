@@ -20,6 +20,6 @@ for repo in listOfRepos:
     url = generateUrlToCircleCIConfig(full_name, default_branch)
     try:
         urllib.request.urlretrieve(url, "configs/"+name+".yml")
-        print("Downloaded "+name+".yml"+" successfully")
+        print("Downloaded "+full_name+"'s config"+" successfully")
     except Exception as e:
         pass
