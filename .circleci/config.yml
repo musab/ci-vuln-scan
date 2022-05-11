@@ -5,6 +5,7 @@ jobs:
     docker:
       - image: cimg/python:3.10.4
     steps:
+      - checkout
       - run:
           name: install whispers
           command: |
@@ -14,10 +15,10 @@ jobs:
       - run:
           name: fetch configs
           command: |
-            python3 config-scraper.py
+            python3 ./config-scraper.py
       - run:
           name: run whispers
-          command: whispers --rules aws-id,aws-secret,apikey,file-contains-password,file-contains-secret ./configs
+          command: whispers --config ./whispers-config.yml --rules aws-id,aws-secret,apikey,file-contains-password,file-contains-secret ./configs
 
 workflows:
   vuln-scan-workflow:
